@@ -9,11 +9,16 @@ function CreatedNote({ addingNote, title }) {
   };
 
   const savingNote = () => {
-    addingNote(noteText);
+    if (noteText.trim().length > 0) {
+      addingNote(noteText);
+      setNoteText("");
+    }
   };
   return (
     <div className="flex flex-col justify-between px-3 w-[90%] h-[30%]  backdrop-blur-lg bg-[#fbfcfd27] rounded-lg">
       <div>
+        <h1 className="text-3xl font-bold">{title}</h1>
+
         <div className="border-b-[1px] border-[#0000009a] py-1">
           <h1 className=" py-1 text-xl ">Note</h1>
         </div>

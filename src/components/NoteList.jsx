@@ -6,18 +6,20 @@ import NoteListDb from "./NoteListDb";
 function NoteList({ notes, addingNote, deletingNote, title }) {
   return (
     <div className="w-full flex flex-col items-center  py-5 space-y-5">
-      <h1 className="text-3xl font-bold">{title}</h1>
       {notes.map((note, id) => {
         return (
-          <Note
-            key={note.id}
-            id={note.id}
-            title={note.title}
-            content={note.content}
-            date={note.date}
-            deletingNote={deletingNote}
-            addingNote={addingNote}
-          />
+          <>
+            <h1>{title}</h1>
+            <Note
+              key={note.id}
+              id={note.id}
+              title={note.title}
+              content={note.content}
+              date={note.date}
+              deletingNote={deletingNote}
+              addingNote={addingNote}
+            />
+          </>
         );
       })}
       <CreatedNote addingNote={addingNote} title={title} />
