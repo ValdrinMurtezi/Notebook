@@ -3,30 +3,38 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 function CreatedNote({ addingNote, title }) {
   const [noteText, setNoteText] = useState("");
-
+  const [noteTitle, setNoteTitle] = useState("");
   const changeText = (e) => {
     setNoteText(e.target.value);
   };
-
+  const changeTitle = (e) => {
+    setNoteTitle(e.target.value);
+  };
   const savingNote = () => {
     if (noteText.trim().length > 0) {
-      addingNote(noteText);
+      addingNote(noteTitle, noteText);
       setNoteText("");
+      setNoteTitle("");
     }
   };
   return (
     <div className="flex flex-col justify-between px-3 w-[90%] h-[30%]  backdrop-blur-lg bg-[#fbfcfd27] rounded-lg">
       <div>
-        <h1 className="text-3xl font-bold">{title}</h1>
-
         <div className="border-b-[1px] border-[#0000009a] py-1">
-          <h1 className=" py-1 text-xl ">Note</h1>
+          <input
+            placeholder="Title"
+            onChange={changeTitle}
+            value={noteTitle}
+            className="py-1 text-lg w-full bg-transparent border-none focus:outline-none rounded-md"
+            type="text"
+          />
         </div>
         <textarea
           onChange={changeText}
           value={noteText}
           cols="8"
           rows="5"
+          placeholder="Write your note here... "
           className="w-full border-none bg-transparent resize-none focus:outline-none"
         ></textarea>
       </div>
