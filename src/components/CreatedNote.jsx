@@ -18,7 +18,7 @@ function CreatedNote({ addingNote, title }) {
     }
   };
   return (
-    <div className="flex flex-col justify-between px-3 w-[90%] h-[30%]  backdrop-blur-lg bg-[#fbfcfd27] rounded-lg">
+    <div className="flex flex-col justify-between px-3 w-[90%] backdrop-blur-lg bg-[#fbfcfd27] rounded-lg">
       <div>
         <div className="border-b-[1px] border-[#0000009a] py-1">
           <input

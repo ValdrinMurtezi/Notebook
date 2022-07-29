@@ -22,11 +22,11 @@ const Notebook = () => {
     if (e.trim().length > 0) {
       if (isFilterOn) {
         setFilteredNotes((prevState) =>
-          prevState.filter((note) => note.content.toLowerCase().includes(e))
+          prevState.filter((note) => note.title.toLowerCase().includes(e))
         );
       } else {
         setNotes((prevState) =>
-          prevState.filter((note) => note.content.toLowerCase().includes(e))
+          prevState.filter((note) => note.title.toLowerCase().includes(e))
         );
       }
     } else {
@@ -84,7 +84,7 @@ const Notebook = () => {
   return (
     <div className="notelist max-w-[800px] w-[90%] flex-col md:flex-row flex items-center backdrop-blur-md justify-center bg-[#0000009a] text-white">
       <div className="md:w-1/2 w-full py-[3rem] ">
-        <div className="w-full bg-[#0000009a] pl-4 flex items-center mb-[4rem] py-2">
+        <div className="w-full bg-[#0000009a] border-t-2 border-b-2 border-[goldenrod] pl-4 flex items-center mb-[4rem] py-2">
           <Search makeSearch={searchTitle} />
         </div>
 
@@ -97,34 +97,38 @@ const Notebook = () => {
           </button>
           <button
             onClick={() => filterResult("todo")}
-            className="w-full hover:bg-[#0000009a] border-2 border-transparent hover:border-2 hover:border-[goldenrod] rounded-md transition-all 0.3s py-3 text-lg text-left pl-4 uppercase"
+            className="w-full hover:bg-[#0000009a] rounded-md transition-all 0.3s py-3 text-lg text-left pl-4 uppercase"
           >
             To Do
           </button>
           <button
             onClick={() => filterResult("meetings")}
-            className="w-full hover:bg-[#0000009a] border-2 border-transparent hover:border-2 hover:border-[goldenrod] rounded-md transition-all 0.3s py-3 text-lg text-left pl-4 uppercase"
+            className="w-full hover:bg-[#0000009a] rounded-md transition-all 0.3s py-3 text-lg text-left pl-4 uppercase"
           >
             Meetings
           </button>
           <button
             onClick={() => filterResult("shopping")}
-            className="w-full hover:bg-[#0000009a] border-2 border-transparent hover:border-2 hover:border-[goldenrod] rounded-md transition-all 0.3s py-3 text-lg text-left pl-4 uppercase"
+            className="w-full hover:bg-[#0000009a] rounded-md transition-all 0.3s py-3 text-lg text-left pl-4 uppercase"
           >
             Shopping
           </button>
           <button
             onClick={() => filterResult("important")}
-            className="w-full hover:bg-[#0000009a] border-2 border-transparent hover:border-2 hover:border-[goldenrod] rounded-md transition-all 0.3s py-3 text-lg text-left pl-4 uppercase"
+            className="w-full hover:bg-[#0000009a] rounded-md transition-all 0.3s py-3 text-lg text-left pl-4 uppercase"
           >
             Important
           </button>
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 bg-[#4b4a4a11] py-4 backdrop-blur-md max-h-[35rem] h-[35rem] overflow-y-scroll">
-        {!isFilterOn && <h1>All notes</h1>}
-        {isFilterOn && <h1 className="capitalize">{filter}</h1>}
+      <div className="flex flex-col items-center w-full md:w-1/2 bg-[#4b4a4a11] py-4 backdrop-blur-md max-h-[35rem] h-[35rem] overflow-y-scroll">
+        {!isFilterOn && (
+          <h1 className="text-3xl capitalize pb-2 text-[gold]">All notes</h1>
+        )}
+        {isFilterOn && (
+          <h1 className="text-3xl capitalize pb-2 text-[gold]">{filter}</h1>
+        )}
         {isFilterOn && <CreatedNote fliter={filter} addingNote={addNote} />}
         {!isFilterOn &&
           notes.map((note) => {
