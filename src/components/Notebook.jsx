@@ -16,7 +16,7 @@ const Notebook = () => {
   useEffect(() => {
     notes.sort();
     setBackupNotes(NotesDb);
-  }, []);
+  }, [notes]);
 
   const searchTitle = (e) => {
     if (e.trim().length > 0) {
