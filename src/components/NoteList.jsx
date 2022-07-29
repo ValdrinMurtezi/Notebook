@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Note from "./Note";
 import CreatedNote from "./CreatedNote";
-import NoteListDb from "./NoteListDb";
 
 function NoteList({ notes, addingNote, deletingNote, title }) {
   return (
