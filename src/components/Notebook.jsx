@@ -84,10 +84,9 @@ const Notebook = () => {
   return (
     <div className="notelist max-w-[800px] w-[90%] flex-col md:flex-row flex items-center backdrop-blur-md justify-center bg-[#0000009a] text-white">
       <div className="md:w-1/2 w-full py-[3rem] ">
-        <div className="w-full bg-[#0000009a] border-t-2 border-b-2 border-[goldenrod] pl-4 flex items-center mb-[4rem] py-2">
+        <div className="w-full bg-[#0000009a] border-t-2 border-b-2 border-[goldenrod] pl-4 flex items-center mb-0 md:mb-[4rem] py-2">
           <Search makeSearch={searchTitle} />
         </div>
-
         <div className="flex flex-col ">
           <button
             onClick={() => filterResult("all")}
@@ -122,7 +121,7 @@ const Notebook = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-center w-full md:w-1/2 bg-[#4b4a4a11] py-4 backdrop-blur-md max-h-[35rem] h-[35rem] overflow-y-scroll">
+      <div className="border-t-2 border-[goldenrod] md:border-0 flex flex-col items-center w-full md:w-1/2 bg-[#4b4a4a11] py-4 backdrop-blur-md max-h-[35rem] h-[35rem] overflow-y-scroll">
         {!isFilterOn && (
           <h1 className="text-3xl capitalize pb-2 text-[gold]">All notes</h1>
         )}
